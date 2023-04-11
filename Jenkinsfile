@@ -18,6 +18,16 @@ pipeline {
 	   steps {
 		echo "Integration Test"
 	   }
+	} post {
+	    always {
+	        echo 'Im awesome. I run always'
+	    }
+	    sucess {
+	        echo 'Im run when you are successful'
+	    }
+	    failure {
+	        echo 'Im run when you are failure'
+	    }			
 	}
     }	
 }
