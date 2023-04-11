@@ -6,9 +6,11 @@ pipeline {
     stages {
 	stage('Build') {
 	   steps {
-	        withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
-    		sh 'docker build -t nhathieu97/nodejs-test:v10 .'
-    		sh 'docker push -t nhathieu97/nodejs-test:v10 .'
+	        withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') 
+	        {
+    		     sh 'docker build -t nhathieu97/nodejs-test:v10 .'
+    		     sh 'docker push -t nhathieu97/nodejs-test:v10 .'
+    		}
 	   }
 	}
 	stage('Test') {
