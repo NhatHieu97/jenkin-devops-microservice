@@ -2,15 +2,13 @@
 
 //DECLARATIVE
 pipeline {
-    agent any
+    //agent any
+	agent { docker { image 'maven:3.6.3'} }
     stages {
 	stage('Build') {
 	   steps {
-	        withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') 
-	        {
-    		     sh 'docker build -t nhathieu97/nodejs-test:v10 .'
-    		     sh 'docker push -t nhathieu97/nodejs-test:v10 .'
-    		}
+			sh 'mvn --version'
+			echo "Build"
 	   }
 	}
 	stage('Test') {
