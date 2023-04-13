@@ -41,7 +41,7 @@ public class CurrencyExchangeSteps {
     }
 
     @Then("^It should output (.*)$")
-    public void thenCheckOutput(float responsess) {
+    public void thenCheckOutput(float response) {
        Assert.assertEquals(output, response,0.5);
 
     }
